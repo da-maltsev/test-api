@@ -1,0 +1,64 @@
+[project]
+name = "da-maltsev"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standart]>=0.115.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.13.0",
+    "ruff>=0.8.3",
+]
+
+
+[tool.ruff]
+line-length = 160
+
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN401",  # dynamically typed expressions (typing.Any) are disallowed in `{}`
+    "COM812",  # Trailing comma missing
+    "D100",  # missing docstring in public module
+    "D101",  # missing docstring in public class
+    "D102",  # missing docstring in public method
+    "D103",  # missing docstring in public function
+    "D104",  # missing docstring in public package
+    "D105",  # missing docstring in magic method
+    "D106",  # missing docstring in public nested class
+    "D107",  # missing docstring in `__init__`
+    "D203",  # one blank line required before class docstring
+    "D213",  # Multi-line docstring summary should start at the second line
+    "EM101",  # exception must not use a string literal, assign to variable first
+    "EM102",  # expection must not use an f-string literal, assign to variable first
+    "INP001",  # file `%filename%` is part of an implicit namespace package. Add an `__init__.py`
+    "ISC001",  # implicitly concatenated string literals on one line
+    "N818",  # exception name `{}` should be named with an Error suffix
+    "PT001",  # use `@pytest.fixture()` over `@pytest.fixture`
+    "TRY003",  # avoid specifying long messages outside the exception class
+]
+
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.mypy]
+python_version = "3.13"
+mypy_path = "."
+files = "."
+namespace_packages = true
+explicit_package_bases = true
+warn_no_return = true
+warn_unused_configs = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+no_implicit_optional = true
+no_implicit_reexport = true
+strict_equality = true
+warn_unreachable = true
+disallow_untyped_calls = true
