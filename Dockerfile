@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir -r /requirements.txt
 
 WORKDIR /src
 
-ADD src/ .
+ADD *.py .
 
 USER nobody
 
